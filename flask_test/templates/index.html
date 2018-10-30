@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Flaski</h1>
+<!-- snake.jpgの表示-->
+<img src="{{url_for('static', filename='snake.jpg')}}" alt="snake"/>
+<ul>
+<!-- 引数で渡されたcontentsのforループ-->
+{% for content in contents %}
+<!-- show_content.htmlを実行。+ {{content.title}}を表示。-->
+<li><a href="{{url_for('show_content', title=content.title)}}">{{content.title}}</a></li>
+{% endfor%}
+</ul>
+{% endblock %}
